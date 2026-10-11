@@ -1,0 +1,15 @@
+base_config: configs/base.yaml
+beta: 0.10
+betas: [0.03, 0.10, 0.30]
+learning_rate: 2.0e-5
+weight_decay: 0.0
+batch_size: 2
+grad_accum_steps: 1
+epochs: 1
+short_ablation_examples: 2
+max_sequence_length: 128
+max_generation_tokens: 16
+max_grad_norm: 1.0
+standard_output: outputs/task1_dpo/smoke_test_adapter
+length_output: outputs/task1_dpo/smoke_test_adapter
+results_dir: results/task1_dpo
