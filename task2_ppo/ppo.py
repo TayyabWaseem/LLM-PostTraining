@@ -88,19 +88,22 @@ def explained_variance(predicted_values: torch.Tensor, returns: torch.Tensor, ma
     
     Var_expl = 1 - Var(returns - predicted_values) / Var(returns)
     """
-    valid_pred = predicted_values[mask.bool()]
-    valid_ret = returns[mask.bool()]
+    valid_pred = predicted_values[mask.bool()].float()
+    valid_ret = returns[mask.bool()].float()
     if valid_ret.numel() <= 1:
         return 0.0
     var_ret = torch.var(valid_ret, unbiased=False)
-    if var_ret.item() == 0.0:
+    if var_ret.item() == 0.0 or torch.isnan(var_ret):
         return 0.0
     var_diff = torch.var(valid_ret - valid_pred, unbiased=False)
-    return float((1.0 - var_diff / var_ret).item())
+    ev = 1.0 - var_diff / var_ret
+    ev_val = float(ev.item())
+    return ev_val if (ev_val == ev_val and abs(ev_val) < 1e6) else 0.0
 
 
 def value_mse_loss(predicted_values, returns, mask):
-    return masked_mean((predicted_values - returns) ** 2, mask)
+    diff = predicted_values.float() - returns.float()
+    return masked_mean(diff ** 2, mask)
 
 
 def normalize_advantages(advantages, mask, eps=1e-6):

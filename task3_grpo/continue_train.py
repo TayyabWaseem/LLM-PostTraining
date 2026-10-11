@@ -221,9 +221,12 @@ def run_grpo(
             else:
                 gnorm_val = 0.0
 
-            optimizer.step()
+            if torch.isfinite(torch.tensor(gnorm_val)):
+                optimizer.step()
+            else:
+                optimizer.zero_grad()
 
-            epoch_losses.append(loss.item())
+            epoch_losses.append(loss.item() if torch.isfinite(loss) else 0.0)
             epoch_kls.append(loss_diags["sampled_kl"].item())
             epoch_clips.append(loss_diags["clip_fraction"].item())
             epoch_affected.append(loss_diags["affected_fraction"].item())

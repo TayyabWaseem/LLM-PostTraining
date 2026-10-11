@@ -254,8 +254,12 @@ def run_ppo(
             )
 
             val_loss = value_mse_loss(new_values, returns, response_mask)
-            total_loss = pol_loss + value_coef * val_loss
-            total_loss.backward()
+
+            # Separate backward passes to prevent critic instability from corrupting policy gradients
+            if torch.isfinite(pol_loss):
+                pol_loss.backward()
+            if torch.isfinite(val_loss):
+                (value_coef * val_loss).backward()
 
             if max_grad_norm > 0:
                 pol_gnorm = torch.nn.utils.clip_grad_norm_(trainable_parameters(policy), max_grad_norm)
@@ -265,14 +269,21 @@ def run_ppo(
             else:
                 pol_gnorm_val, val_gnorm_val = 0.0, 0.0
 
-            policy_optimizer.step()
-            value_optimizer.step()
+            if torch.isfinite(torch.tensor(pol_gnorm_val)):
+                policy_optimizer.step()
+            else:
+                policy_optimizer.zero_grad()
+
+            if torch.isfinite(torch.tensor(val_gnorm_val)):
+                value_optimizer.step()
+            else:
+                value_optimizer.zero_grad()
 
             entropy_val = sample_entropy(new_logp, response_mask).item()
             ev_val = explained_variance(new_values.detach(), returns, response_mask)
 
-            update_pol_losses.append(pol_loss.item())
-            update_val_losses.append(val_loss.item())
+            update_pol_losses.append(pol_loss.item() if torch.isfinite(pol_loss) else 0.0)
+            update_val_losses.append(val_loss.item() if torch.isfinite(val_loss) else 0.0)
             update_clip_fractions.append(ppo_diags["clip_fraction"].item())
             update_affected_fractions.append(ppo_diags["affected_fraction"].item())
             update_approx_kls.append(ppo_diags["approx_kl"].item())

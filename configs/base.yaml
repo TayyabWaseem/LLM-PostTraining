@@ -5,7 +5,7 @@ reward_tokenizer: Qwen/Qwen2.5-1.5B-Instruct
 ai_judge_model: Qwen/Qwen2.5-3B-Instruct
 value_model_init: Qwen/Qwen2.5-0.5B-Instruct
 
-dtype: float16
+dtype: bfloat16
 quantize_frozen_models: true
 
 lora:
