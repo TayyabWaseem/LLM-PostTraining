@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 import pandas as pd
 
-from common.data import load_yaml, repo_path, write_jsonl
+from common.data import load_yaml, read_jsonl, repo_path, write_jsonl
 from common.generation import batch_generate
 from common.models import clear_gpu, load_policy, load_tokenizer
 
