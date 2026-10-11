@@ -1,0 +1,102 @@
+==================================================
+      Task 1: DPO Regularization Strength Study    
+==================================================
+Beta sweep values: [0.03, 0.1, 0.3]
+Examples per condition: 600
+
+>>> Running Training for Beta = 0.03 (budget = 600 ex) <<<
+=== Starting DPO Training: beta_0_03 ===
+Device: cuda:0 | Total examples: 600 | Batches per epoch: 300
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.03
+Epoch 1 | Update 5 (Step 40/300) | Loss: 0.6934 | Margin: -0.0174 | Pref Acc: 43.75% | GradNorm: 0.620
+Epoch 1 | Update 10 (Step 80/300) | Loss: 0.6933 | Margin: -0.0110 | Pref Acc: 43.75% | GradNorm: 0.733
+Epoch 1 | Update 15 (Step 120/300) | Loss: 0.6916 | Margin: 0.1034 | Pref Acc: 56.25% | GradNorm: 0.743
+Epoch 1 | Update 20 (Step 160/300) | Loss: 0.6927 | Margin: 0.0275 | Pref Acc: 68.75% | GradNorm: 0.517
+Epoch 1 | Update 25 (Step 200/300) | Loss: 0.6928 | Margin: 0.0235 | Pref Acc: 62.50% | GradNorm: 0.531
+Epoch 1 | Update 30 (Step 240/300) | Loss: 0.6907 | Margin: 0.1658 | Pref Acc: 62.50% | GradNorm: 0.650
+Epoch 1 | Update 35 (Step 280/300) | Loss: 0.6918 | Margin: 0.0936 | Pref Acc: 56.25% | GradNorm: 0.687
+Epoch 1 | Update 38 (Step 300/300) | Loss: 0.6880 | Margin: 0.3435 | Pref Acc: 75.00% | GradNorm: 1.002
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/beta_0_03...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_03_train_log.json
+
+>>> Running Evaluation for Beta = 0.03 <<<
+
+--- Evaluating DPO Policy: beta_0_03 ---
+Total evaluation pairs: 300 | Adapter: outputs/task1_dpo/beta_0_03
+
+--- Evaluation Summary ---
+Preference Accuracy: 61.67%
+DPO Loss: 0.6888 | Margin: 0.0925
+Sampled KL: -0.00113
+Mean Reward: 1.1143 ± 1.1514
+Mean Response Length: 156.3 ± 103.0 tokens
+Saved evaluation results to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_03_eval.json
+
+>>> Running Training for Beta = 0.1 (budget = 600 ex) <<<
+=== Starting DPO Training: beta_0_10 ===
+Device: cuda:0 | Total examples: 600 | Batches per epoch: 300
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.1
+Epoch 1 | Update 5 (Step 40/300) | Loss: 0.6943 | Margin: -0.0220 | Pref Acc: 43.75% | GradNorm: 2.028
+Epoch 1 | Update 10 (Step 80/300) | Loss: 0.6930 | Margin: 0.0046 | Pref Acc: 50.00% | GradNorm: 2.415
+Epoch 1 | Update 15 (Step 120/300) | Loss: 0.6878 | Margin: 0.1084 | Pref Acc: 68.75% | GradNorm: 2.428
+Epoch 1 | Update 20 (Step 160/300) | Loss: 0.6922 | Margin: 0.0194 | Pref Acc: 43.75% | GradNorm: 1.687
+Epoch 1 | Update 25 (Step 200/300) | Loss: 0.6953 | Margin: -0.0417 | Pref Acc: 37.50% | GradNorm: 1.743
+Epoch 1 | Update 30 (Step 240/300) | Loss: 0.6850 | Margin: 0.1694 | Pref Acc: 68.75% | GradNorm: 2.114
+Epoch 1 | Update 35 (Step 280/300) | Loss: 0.6883 | Margin: 0.1034 | Pref Acc: 68.75% | GradNorm: 2.282
+Epoch 1 | Update 38 (Step 300/300) | Loss: 0.6782 | Margin: 0.3072 | Pref Acc: 75.00% | GradNorm: 3.288
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/beta_0_10...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_10_train_log.json
+
+>>> Running Evaluation for Beta = 0.1 <<<
+
+--- Evaluating DPO Policy: beta_0_10 ---
+Total evaluation pairs: 300 | Adapter: outputs/task1_dpo/beta_0_10
+
+--- Evaluation Summary ---
+Preference Accuracy: 62.00%
+DPO Loss: 0.6884 | Margin: 0.1007
+Sampled KL: -0.00105
+Mean Reward: 1.0875 ± 1.2068
+Mean Response Length: 155.9 ± 102.5 tokens
+Saved evaluation results to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_10_eval.json
+
+>>> Running Training for Beta = 0.3 (budget = 600 ex) <<<
+=== Starting DPO Training: beta_0_30 ===
+Device: cuda:0 | Total examples: 600 | Batches per epoch: 300
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.3
+Epoch 1 | Update 5 (Step 40/300) | Loss: 0.6935 | Margin: -0.0021 | Pref Acc: 50.00% | GradNorm: 6.108
+Epoch 1 | Update 10 (Step 80/300) | Loss: 0.7045 | Margin: -0.0730 | Pref Acc: 37.50% | GradNorm: 7.334
+Epoch 1 | Update 15 (Step 120/300) | Loss: 0.6752 | Margin: 0.1246 | Pref Acc: 68.75% | GradNorm: 7.151
+Epoch 1 | Update 20 (Step 160/300) | Loss: 0.6887 | Margin: 0.0317 | Pref Acc: 56.25% | GradNorm: 5.008
+Epoch 1 | Update 25 (Step 200/300) | Loss: 0.6985 | Margin: -0.0336 | Pref Acc: 43.75% | GradNorm: 5.255
+Epoch 1 | Update 30 (Step 240/300) | Loss: 0.6679 | Margin: 0.1878 | Pref Acc: 68.75% | GradNorm: 6.132
+Epoch 1 | Update 35 (Step 280/300) | Loss: 0.6768 | Margin: 0.1260 | Pref Acc: 68.75% | GradNorm: 6.785
+Epoch 1 | Update 38 (Step 300/300) | Loss: 0.6579 | Margin: 0.2596 | Pref Acc: 62.50% | GradNorm: 9.576
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/beta_0_30...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_30_train_log.json
+
+>>> Running Evaluation for Beta = 0.3 <<<
+
+--- Evaluating DPO Policy: beta_0_30 ---
+Total evaluation pairs: 300 | Adapter: outputs/task1_dpo/beta_0_30
+
+--- Evaluation Summary ---
+Preference Accuracy: 62.33%
+DPO Loss: 0.6886 | Margin: 0.0966
+Sampled KL: -0.00102
+Mean Reward: 1.0860 ± 1.2313
+Mean Response Length: 166.3 ± 103.8 tokens
+Saved evaluation results to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_30_eval.json
+
+==================================================
+           Beta Ablation Study Results            
+==================================================
+| Beta | Pref Acc (%) | Margin | KL Divergence | Mean Reward | Mean Length |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 0.03 | 61.67% | 0.0925 | -0.00113 | 1.1143 | 156.3 ± 103.0 |
+| 0.1 | 62.00% | 0.1007 | -0.00105 | 1.0875 | 155.9 ± 102.5 |
+| 0.3 | 62.33% | 0.0966 | -0.00102 | 1.0860 | 166.3 ± 103.8 |
+
+Saved summary to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_ablation_summary.json
+
+[exit 0] 2821s
