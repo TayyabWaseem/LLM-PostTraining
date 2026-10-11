@@ -1,0 +1,13 @@
+
+--- Evaluating DPO Policy: standard ---
+Total evaluation pairs: 300 | Adapter: outputs/task1_dpo/standard
+
+--- Evaluation Summary ---
+Preference Accuracy: 63.67%
+DPO Loss: 0.6758 | Margin: 0.4156
+Sampled KL: -0.00600
+Mean Reward: 1.2046 ± 1.2283
+Mean Response Length: 165.1 ± 100.1 tokens
+Saved evaluation results to /kaggle/working/LLM-PostTraining/results/task1_dpo/standard_eval.json
+
+[exit 0] 380s
