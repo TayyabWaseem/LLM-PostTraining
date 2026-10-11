@@ -1,0 +1,26 @@
+=== Starting DPO Training: standard ===
+Device: cuda:0 | Total examples: 1500 | Batches per epoch: 750
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.1
+Epoch 1 | Update 5 (Step 40/750) | Loss: 0.6925 | Margin: 0.0136 | Pref Acc: 56.25% | GradNorm: 1.942
+Epoch 1 | Update 10 (Step 80/750) | Loss: 0.6949 | Margin: -0.0346 | Pref Acc: 43.75% | GradNorm: 2.494
+Epoch 1 | Update 15 (Step 120/750) | Loss: 0.6907 | Margin: 0.0509 | Pref Acc: 56.25% | GradNorm: 1.639
+Epoch 1 | Update 20 (Step 160/750) | Loss: 0.6917 | Margin: 0.0306 | Pref Acc: 68.75% | GradNorm: 2.191
+Epoch 1 | Update 25 (Step 200/750) | Loss: 0.6951 | Margin: -0.0375 | Pref Acc: 56.25% | GradNorm: 2.264
+Epoch 1 | Update 30 (Step 240/750) | Loss: 0.6868 | Margin: 0.1309 | Pref Acc: 62.50% | GradNorm: 2.051
+Epoch 1 | Update 35 (Step 280/750) | Loss: 0.6804 | Margin: 0.2617 | Pref Acc: 75.00% | GradNorm: 2.040
+Epoch 1 | Update 40 (Step 320/750) | Loss: 0.6865 | Margin: 0.1381 | Pref Acc: 56.25% | GradNorm: 2.212
+Epoch 1 | Update 45 (Step 360/750) | Loss: 0.6760 | Margin: 0.3609 | Pref Acc: 81.25% | GradNorm: 2.194
+Epoch 1 | Update 50 (Step 400/750) | Loss: 0.6777 | Margin: 0.3232 | Pref Acc: 81.25% | GradNorm: 1.919
+Epoch 1 | Update 55 (Step 440/750) | Loss: 0.6871 | Margin: 0.1280 | Pref Acc: 50.00% | GradNorm: 2.152
+Epoch 1 | Update 60 (Step 480/750) | Loss: 0.6875 | Margin: 0.1243 | Pref Acc: 50.00% | GradNorm: 2.031
+Epoch 1 | Update 65 (Step 520/750) | Loss: 0.6740 | Margin: 0.4103 | Pref Acc: 56.25% | GradNorm: 2.253
+Epoch 1 | Update 70 (Step 560/750) | Loss: 0.7126 | Margin: -0.3407 | Pref Acc: 43.75% | GradNorm: 2.233
+Epoch 1 | Update 75 (Step 600/750) | Loss: 0.6951 | Margin: 0.0236 | Pref Acc: 62.50% | GradNorm: 2.406
+Epoch 1 | Update 80 (Step 640/750) | Loss: 0.6805 | Margin: 0.2832 | Pref Acc: 68.75% | GradNorm: 2.015
+Epoch 1 | Update 85 (Step 680/750) | Loss: 0.6920 | Margin: 0.1076 | Pref Acc: 31.25% | GradNorm: 2.419
+Epoch 1 | Update 90 (Step 720/750) | Loss: 0.6670 | Margin: 0.5846 | Pref Acc: 68.75% | GradNorm: 2.069
+Epoch 1 | Update 94 (Step 750/750) | Loss: 0.6469 | Margin: 1.0213 | Pref Acc: 66.67% | GradNorm: 2.804
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/standard...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/standard_train_log.json
+
+[exit 0] 1445s
