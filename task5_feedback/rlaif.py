@@ -73,6 +73,9 @@ class PairwiseAIJudge:
 
     @torch.no_grad()
     def compare(self, problem: str, a: str, b: str):
+        if str(a).strip() == str(b).strip():
+            return "TIE"
+
         key = self._key(problem, a, b)
         if key in self.cache:
             return self.cache[key]
@@ -85,11 +88,13 @@ class PairwiseAIJudge:
             return_tensors="pt",
             add_generation_prompt=True,
         ).to(next(self.model.parameters()).device)
+        attn_mask = torch.ones_like(ids)
         out = self.model.generate(
             ids,
+            attention_mask=attn_mask,
             max_new_tokens=4,
             do_sample=False,
-            pad_token_id=self.tokenizer.eos_token_id,
+            pad_token_id=self.tokenizer.pad_token_id or self.tokenizer.eos_token_id,
             eos_token_id=self.tokenizer.eos_token_id,
         )
         decoded = self.tokenizer.decode(out[0, ids.shape[1]:], skip_special_tokens=True).strip().upper()
