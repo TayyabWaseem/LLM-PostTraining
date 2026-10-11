@@ -1,0 +1,54 @@
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+==================================================
+      Task 1: DPO Length-Confounding Study        
+==================================================
+
+>>> Training Length-Balanced DPO Model on data/dpo_length_balanced_train.jsonl <<<
+=== Starting DPO Training: length_balanced ===
+Device: cuda:0 | Total examples: 1500 | Batches per epoch: 750
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.1
+Epoch 1 | Update 5 (Step 40/750) | Loss: 0.6933 | Margin: -0.0019 | Pref Acc: 31.25% | GradNorm: 1.790
+Epoch 1 | Update 10 (Step 80/750) | Loss: 0.6899 | Margin: 0.0660 | Pref Acc: 75.00% | GradNorm: 1.693
+Epoch 1 | Update 15 (Step 120/750) | Loss: 0.6891 | Margin: 0.0821 | Pref Acc: 68.75% | GradNorm: 1.820
+Epoch 1 | Update 20 (Step 160/750) | Loss: 0.6917 | Margin: 0.0300 | Pref Acc: 56.25% | GradNorm: 1.748
+Epoch 1 | Update 25 (Step 200/750) | Loss: 0.6895 | Margin: 0.0748 | Pref Acc: 56.25% | GradNorm: 1.916
+Epoch 1 | Update 30 (Step 240/750) | Loss: 0.6911 | Margin: 0.0448 | Pref Acc: 56.25% | GradNorm: 1.577
+Epoch 1 | Update 35 (Step 280/750) | Loss: 0.6946 | Margin: -0.0265 | Pref Acc: 62.50% | GradNorm: 1.848
+Epoch 1 | Update 40 (Step 320/750) | Loss: 0.6919 | Margin: 0.0323 | Pref Acc: 50.00% | GradNorm: 1.726
+Epoch 1 | Update 45 (Step 360/750) | Loss: 0.6937 | Margin: -0.0036 | Pref Acc: 43.75% | GradNorm: 2.095
+Epoch 1 | Update 50 (Step 400/750) | Loss: 0.6814 | Margin: 0.2464 | Pref Acc: 50.00% | GradNorm: 1.797
+Epoch 1 | Update 55 (Step 440/750) | Loss: 0.6838 | Margin: 0.2001 | Pref Acc: 62.50% | GradNorm: 2.321
+Epoch 1 | Update 60 (Step 480/750) | Loss: 0.6884 | Margin: 0.1085 | Pref Acc: 62.50% | GradNorm: 1.903
+Epoch 1 | Update 65 (Step 520/750) | Loss: 0.6715 | Margin: 0.4633 | Pref Acc: 75.00% | GradNorm: 2.056
+Epoch 1 | Update 70 (Step 560/750) | Loss: 0.6980 | Margin: -0.0861 | Pref Acc: 50.00% | GradNorm: 2.004
+Epoch 1 | Update 75 (Step 600/750) | Loss: 0.6999 | Margin: -0.0929 | Pref Acc: 56.25% | GradNorm: 2.024
+Epoch 1 | Update 80 (Step 640/750) | Loss: 0.6689 | Margin: 0.5279 | Pref Acc: 62.50% | GradNorm: 2.503
+Epoch 1 | Update 85 (Step 680/750) | Loss: 0.6626 | Margin: 0.6833 | Pref Acc: 68.75% | GradNorm: 2.231
+Epoch 1 | Update 90 (Step 720/750) | Loss: 0.6496 | Margin: 0.9409 | Pref Acc: 87.50% | GradNorm: 1.941
+Epoch 1 | Update 94 (Step 750/750) | Loss: 0.6649 | Margin: 0.6520 | Pref Acc: 50.00% | GradNorm: 3.924
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/length_balanced...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/length_balanced_train_log.json
+
+>>> Evaluating standard_dpo (outputs/task1_dpo/standard) <<<
+
+>>> Evaluating length_balanced_dpo (outputs/task1_dpo/length_balanced) <<<
+
+==================================================
+      Length Confounding: Stratified Accuracy      
+==================================================
+| Model | Overall Acc | Pref. Longer Acc | Matched Acc | Rej. Longer Acc |
+| :--- | :--- | :--- | :--- | :--- |
+| standard_dpo | 57.32% | 45.12% | 62.20% | 64.63% |
+| length_balanced_dpo | 62.20% | 42.68% | 65.85% | 78.05% |
+
+==================================================
+      Word-Limit Compliance & Length Bias        
+==================================================
+| Model | Word-Limit Compliance (%) | Mean Words | Mean Response Tokens |
+| :--- | :--- | :--- | :--- |
+| standard_dpo | 40.00% | 39.9 words | 46.8 tokens |
+| length_balanced_dpo | 40.00% | 41.4 words | 48.4 tokens |
+
+Saved analysis summary to /kaggle/working/LLM-PostTraining/results/task1_dpo/length_analysis_summary.json
+
+[exit 0] 1355s
