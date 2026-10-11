@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "name": "smoke_test",
+    "adapter": "outputs/task1_dpo/smoke_test_adapter",
+    "beta": 0.1,
+    "n_eval_pairs": 2,
+    "held_out_dpo_loss": 0.6943,
+    "held_out_dpo_margin": -0.0226,
+    "held_out_preference_accuracy": 0.5,
+    "held_out_kl": -0.00029,
+    "held_out_chosen_kl": -0.00032,
+    "held_out_rejected_kl": -0.00026,
+    "n_generated": 2,
+    "mean_response_length": 16.0,
+    "std_response_length": 0.0,
+    "median_response_length": 16.0,
+    "mean_reward_score": null,
+    "std_reward_score": null
+  },
+  "qualitative_samples": [
+    {
+      "prompt": [
+        {
+          "content": "Please create a comprehensive guide that includes step-by-step instructions and a list of necessary ingredients and tools for making delicious homemade pizza, as well as tips for achieving the perfect crust, sauce, cheese, and toppings. Additionally, please aim for a clear and concise writing style that is accessible to beginners in the kitchen.",
+          "role": "user"
+        }
+      ],
+      "response": "Creating a homemade pizza can be an exciting culinary adventure! With just a few simple",
+      "length_tokens": 16,
+      "reward_score": null
+    },
+    {
+      "prompt": [
+        {
+          "content": "How can incorporating gratitude practices into daily routines improve the communication between couples in long-term relationships?",
+          "role": "user"
+        }
+      ],
+      "response": "Incorporating gratitude practices into daily routines can significantly enhance communication between couples in",
+      "length_tokens": 16,
+      "reward_score": null
+    }
+  ]
+}

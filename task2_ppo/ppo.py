@@ -29,7 +29,7 @@ def compute_gae(rewards, values, mask, gamma=1.0, lam=0.95):
         last_adv = last_adv * current_valid
         advantages[:, t] = last_adv
 
-    returns = advantages + values
+    returns = (advantages + values) * mask
     return advantages, returns
 
 
@@ -52,13 +52,51 @@ def ppo_policy_loss(new_logp, old_logp, advantage, mask, eps=0.2):
     surr1 = ratio * advantage
     surr2 = ratio.clamp(1.0 - eps, 1.0 + eps) * advantage
 
-    # Starter implementation: students must validate the clipping geometry carefully.
-    objective = torch.maximum(surr1, surr2)
+    # Fixed PPO objective: minimum forms the pessimistic lower bound on policy updates
+    objective = torch.minimum(surr1, surr2)
 
     loss = -masked_mean(objective, mask)
-    affected = ((ratio < (1.0 - eps)) | (ratio > (1.0 + eps))).float()
-    clip_fraction = masked_mean(affected, mask)
-    return loss, ratio.detach(), clip_fraction.detach()
+    clipped_tokens = ((ratio < (1.0 - eps)) | (ratio > (1.0 + eps))).float()
+    clip_fraction = masked_mean(clipped_tokens, mask)
+
+    # Affected-token fraction: tokens where the clipping bound actually changes the objective value
+    # (advantage > 0 and ratio > 1 + eps) or (advantage < 0 and ratio < 1 - eps)
+    actually_affected = (
+        ((advantage > 0) & (ratio > (1.0 + eps)))
+        | ((advantage < 0) & (ratio < (1.0 - eps)))
+    ).float()
+    affected_fraction = masked_mean(actually_affected, mask)
+
+    log_ratio = new_logp - old_logp
+    approx_kl = masked_mean(0.5 * (log_ratio ** 2), mask)
+
+    diags = {
+        "loss": loss.detach(),
+        "ratio": ratio.detach(),
+        "clip_fraction": clip_fraction.detach(),
+        "affected_fraction": affected_fraction.detach(),
+        "approx_kl": approx_kl.detach(),
+        "objective_mean": masked_mean(objective, mask).detach(),
+        "surr1_mean": masked_mean(surr1, mask).detach(),
+        "surr2_mean": masked_mean(surr2, mask).detach(),
+    }
+    return loss, diags
+
+
+def explained_variance(predicted_values: torch.Tensor, returns: torch.Tensor, mask: torch.Tensor) -> float:
+    """Calculate explained variance of critic value predictions against GAE returns.
+    
+    Var_expl = 1 - Var(returns - predicted_values) / Var(returns)
+    """
+    valid_pred = predicted_values[mask.bool()]
+    valid_ret = returns[mask.bool()]
+    if valid_ret.numel() <= 1:
+        return 0.0
+    var_ret = torch.var(valid_ret, unbiased=False)
+    if var_ret.item() == 0.0:
+        return 0.0
+    var_diff = torch.var(valid_ret - valid_pred, unbiased=False)
+    return float((1.0 - var_diff / var_ret).item())
 
 
 def value_mse_loss(predicted_values, returns, mask):

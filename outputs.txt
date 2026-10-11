@@ -1,0 +1,413 @@
+TASK 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>> [t1_train_standard] python -m task1_dpo.train --config configs/dpo.yaml --run-name standard
+
+=== Starting DPO Training: standard ===
+Device: cuda:0 | Total examples: 1500 | Batches per epoch: 750
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.1
+Epoch 1 | Update 5 (Step 40/750) | Loss: 0.6925 | Margin: 0.0136 | Pref Acc: 56.25% | GradNorm: 1.942
+Epoch 1 | Update 10 (Step 80/750) | Loss: 0.6949 | Margin: -0.0346 | Pref Acc: 43.75% | GradNorm: 2.494
+Epoch 1 | Update 15 (Step 120/750) | Loss: 0.6907 | Margin: 0.0509 | Pref Acc: 56.25% | GradNorm: 1.639
+Epoch 1 | Update 20 (Step 160/750) | Loss: 0.6917 | Margin: 0.0306 | Pref Acc: 68.75% | GradNorm: 2.191
+Epoch 1 | Update 25 (Step 200/750) | Loss: 0.6951 | Margin: -0.0375 | Pref Acc: 56.25% | GradNorm: 2.264
+Epoch 1 | Update 30 (Step 240/750) | Loss: 0.6868 | Margin: 0.1309 | Pref Acc: 62.50% | GradNorm: 2.051
+Epoch 1 | Update 35 (Step 280/750) | Loss: 0.6804 | Margin: 0.2617 | Pref Acc: 75.00% | GradNorm: 2.040
+Epoch 1 | Update 40 (Step 320/750) | Loss: 0.6865 | Margin: 0.1381 | Pref Acc: 56.25% | GradNorm: 2.212
+Epoch 1 | Update 45 (Step 360/750) | Loss: 0.6760 | Margin: 0.3609 | Pref Acc: 81.25% | GradNorm: 2.194
+Epoch 1 | Update 50 (Step 400/750) | Loss: 0.6777 | Margin: 0.3232 | Pref Acc: 81.25% | GradNorm: 1.919
+Epoch 1 | Update 55 (Step 440/750) | Loss: 0.6871 | Margin: 0.1280 | Pref Acc: 50.00% | GradNorm: 2.152
+Epoch 1 | Update 60 (Step 480/750) | Loss: 0.6875 | Margin: 0.1243 | Pref Acc: 50.00% | GradNorm: 2.031
+Epoch 1 | Update 65 (Step 520/750) | Loss: 0.6740 | Margin: 0.4103 | Pref Acc: 56.25% | GradNorm: 2.253
+Epoch 1 | Update 70 (Step 560/750) | Loss: 0.7126 | Margin: -0.3407 | Pref Acc: 43.75% | GradNorm: 2.233
+Epoch 1 | Update 75 (Step 600/750) | Loss: 0.6951 | Margin: 0.0236 | Pref Acc: 62.50% | GradNorm: 2.406
+Epoch 1 | Update 80 (Step 640/750) | Loss: 0.6805 | Margin: 0.2832 | Pref Acc: 68.75% | GradNorm: 2.015
+Epoch 1 | Update 85 (Step 680/750) | Loss: 0.6920 | Margin: 0.1076 | Pref Acc: 31.25% | GradNorm: 2.419
+Epoch 1 | Update 90 (Step 720/750) | Loss: 0.6670 | Margin: 0.5846 | Pref Acc: 68.75% | GradNorm: 2.069
+Epoch 1 | Update 94 (Step 750/750) | Loss: 0.6469 | Margin: 1.0213 | Pref Acc: 66.67% | GradNorm: 2.804
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/standard...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/standard_train_log.json
+
+[done] t1_train_standard in 24.1 min
+
+
+
+[main f5cf8a9] Task 1: standard DPO training logs
+ 7 files changed, 1212 insertions(+)
+ create mode 100644 results/.done/setup
+ create mode 100644 results/.done/t1_smoke
+ create mode 100644 results/.done/t1_train_standard
+ create mode 100644 results/logs/t1_smoke.log
+ create mode 100644 results/logs/t1_train_standard.log
+ create mode 100644 results/task1_dpo/smoke_train_log.json
+ create mode 100644 results/task1_dpo/standard_train_log.json
+
+To https://github.com/TayyabWaseem/LLM-PostTraining.git
+   6d8590e..f5cf8a9  HEAD -> main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   >>> [t1_ablate_beta] python -m task1_dpo.ablate_beta --config configs/dpo.yaml
+
+==================================================
+      Task 1: DPO Regularization Strength Study    
+==================================================
+Beta sweep values: [0.03, 0.1, 0.3]
+Examples per condition: 600
+
+>>> Running Training for Beta = 0.03 (budget = 600 ex) <<<
+=== Starting DPO Training: beta_0_03 ===
+Device: cuda:0 | Total examples: 600 | Batches per epoch: 300
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.03
+Epoch 1 | Update 5 (Step 40/300) | Loss: 0.6934 | Margin: -0.0174 | Pref Acc: 43.75% | GradNorm: 0.620
+Epoch 1 | Update 10 (Step 80/300) | Loss: 0.6933 | Margin: -0.0110 | Pref Acc: 43.75% | GradNorm: 0.733
+Epoch 1 | Update 15 (Step 120/300) | Loss: 0.6916 | Margin: 0.1034 | Pref Acc: 56.25% | GradNorm: 0.743
+Epoch 1 | Update 20 (Step 160/300) | Loss: 0.6927 | Margin: 0.0275 | Pref Acc: 68.75% | GradNorm: 0.517
+Epoch 1 | Update 25 (Step 200/300) | Loss: 0.6928 | Margin: 0.0235 | Pref Acc: 62.50% | GradNorm: 0.531
+Epoch 1 | Update 30 (Step 240/300) | Loss: 0.6907 | Margin: 0.1658 | Pref Acc: 62.50% | GradNorm: 0.650
+Epoch 1 | Update 35 (Step 280/300) | Loss: 0.6918 | Margin: 0.0936 | Pref Acc: 56.25% | GradNorm: 0.687
+Epoch 1 | Update 38 (Step 300/300) | Loss: 0.6880 | Margin: 0.3435 | Pref Acc: 75.00% | GradNorm: 1.002
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/beta_0_03...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_03_train_log.json
+
+>>> Running Evaluation for Beta = 0.03 <<<
+
+--- Evaluating DPO Policy: beta_0_03 ---
+Total evaluation pairs: 300 | Adapter: outputs/task1_dpo/beta_0_03
+
+--- Evaluation Summary ---
+Preference Accuracy: 61.67%
+DPO Loss: 0.6888 | Margin: 0.0925
+Sampled KL: -0.00113
+Mean Reward: 1.1143 ± 1.1514
+Mean Response Length: 156.3 ± 103.0 tokens
+Saved evaluation results to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_03_eval.json
+
+>>> Running Training for Beta = 0.1 (budget = 600 ex) <<<
+=== Starting DPO Training: beta_0_10 ===
+Device: cuda:0 | Total examples: 600 | Batches per epoch: 300
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.1
+Epoch 1 | Update 5 (Step 40/300) | Loss: 0.6943 | Margin: -0.0220 | Pref Acc: 43.75% | GradNorm: 2.028
+Epoch 1 | Update 10 (Step 80/300) | Loss: 0.6930 | Margin: 0.0046 | Pref Acc: 50.00% | GradNorm: 2.415
+Epoch 1 | Update 15 (Step 120/300) | Loss: 0.6878 | Margin: 0.1084 | Pref Acc: 68.75% | GradNorm: 2.428
+Epoch 1 | Update 20 (Step 160/300) | Loss: 0.6922 | Margin: 0.0194 | Pref Acc: 43.75% | GradNorm: 1.687
+Epoch 1 | Update 25 (Step 200/300) | Loss: 0.6953 | Margin: -0.0417 | Pref Acc: 37.50% | GradNorm: 1.743
+Epoch 1 | Update 30 (Step 240/300) | Loss: 0.6850 | Margin: 0.1694 | Pref Acc: 68.75% | GradNorm: 2.114
+Epoch 1 | Update 35 (Step 280/300) | Loss: 0.6883 | Margin: 0.1034 | Pref Acc: 68.75% | GradNorm: 2.282
+Epoch 1 | Update 38 (Step 300/300) | Loss: 0.6782 | Margin: 0.3072 | Pref Acc: 75.00% | GradNorm: 3.288
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/beta_0_10...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_10_train_log.json
+
+>>> Running Evaluation for Beta = 0.1 <<<
+
+--- Evaluating DPO Policy: beta_0_10 ---
+Total evaluation pairs: 300 | Adapter: outputs/task1_dpo/beta_0_10
+
+--- Evaluation Summary ---
+Preference Accuracy: 62.00%
+DPO Loss: 0.6884 | Margin: 0.1007
+Sampled KL: -0.00105
+Mean Reward: 1.0875 ± 1.2068
+Mean Response Length: 155.9 ± 102.5 tokens
+Saved evaluation results to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_10_eval.json
+
+>>> Running Training for Beta = 0.3 (budget = 600 ex) <<<
+=== Starting DPO Training: beta_0_30 ===
+Device: cuda:0 | Total examples: 600 | Batches per epoch: 300
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.3
+Epoch 1 | Update 5 (Step 40/300) | Loss: 0.6935 | Margin: -0.0021 | Pref Acc: 50.00% | GradNorm: 6.108
+Epoch 1 | Update 10 (Step 80/300) | Loss: 0.7045 | Margin: -0.0730 | Pref Acc: 37.50% | GradNorm: 7.334
+Epoch 1 | Update 15 (Step 120/300) | Loss: 0.6752 | Margin: 0.1246 | Pref Acc: 68.75% | GradNorm: 7.151
+Epoch 1 | Update 20 (Step 160/300) | Loss: 0.6887 | Margin: 0.0317 | Pref Acc: 56.25% | GradNorm: 5.008
+Epoch 1 | Update 25 (Step 200/300) | Loss: 0.6985 | Margin: -0.0336 | Pref Acc: 43.75% | GradNorm: 5.255
+Epoch 1 | Update 30 (Step 240/300) | Loss: 0.6679 | Margin: 0.1878 | Pref Acc: 68.75% | GradNorm: 6.132
+Epoch 1 | Update 35 (Step 280/300) | Loss: 0.6768 | Margin: 0.1260 | Pref Acc: 68.75% | GradNorm: 6.785
+Epoch 1 | Update 38 (Step 300/300) | Loss: 0.6579 | Margin: 0.2596 | Pref Acc: 62.50% | GradNorm: 9.576
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/beta_0_30...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_30_train_log.json
+
+>>> Running Evaluation for Beta = 0.3 <<<
+
+--- Evaluating DPO Policy: beta_0_30 ---
+Total evaluation pairs: 300 | Adapter: outputs/task1_dpo/beta_0_30
+
+--- Evaluation Summary ---
+Preference Accuracy: 62.33%
+DPO Loss: 0.6886 | Margin: 0.0966
+Sampled KL: -0.00102
+Mean Reward: 1.0860 ± 1.2313
+Mean Response Length: 166.3 ± 103.8 tokens
+Saved evaluation results to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_0_30_eval.json
+
+==================================================
+           Beta Ablation Study Results            
+==================================================
+| Beta | Pref Acc (%) | Margin | KL Divergence | Mean Reward | Mean Length |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 0.03 | 61.67% | 0.0925 | -0.00113 | 1.1143 | 156.3 ± 103.0 |
+| 0.1 | 62.00% | 0.1007 | -0.00105 | 1.0875 | 155.9 ± 102.5 |
+| 0.3 | 62.33% | 0.0966 | -0.00102 | 1.0860 | 166.3 ± 103.8 |
+
+Saved summary to /kaggle/working/LLM-PostTraining/results/task1_dpo/beta_ablation_summary.json
+
+[done] t1_ablate_beta in 47.0 min
+
+
+
+[main 02da67a] Task 1: beta ablation results
+ 9 files changed, 2268 insertions(+)
+ create mode 100644 results/.done/t1_ablate_beta
+ create mode 100644 results/task1_dpo/beta_0_03_eval.json
+ create mode 100644 results/task1_dpo/beta_0_03_train_log.json
+ create mode 100644 results/task1_dpo/beta_0_10_eval.json
+ create mode 100644 results/task1_dpo/beta_0_10_train_log.json
+ create mode 100644 results/task1_dpo/beta_0_30_eval.json
+ create mode 100644 results/task1_dpo/beta_0_30_train_log.json
+ create mode 100644 results/task1_dpo/beta_ablation_summary.json
+
+To https://github.com/TayyabWaseem/LLM-PostTraining.git
+   d4affa1..02da67a  HEAD -> main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>> [t1_analyze_length] python -m task1_dpo.analyze_length --config configs/dpo.yaml
+
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+==================================================
+      Task 1: DPO Length-Confounding Study        
+==================================================
+
+>>> Training Length-Balanced DPO Model on data/dpo_length_balanced_train.jsonl <<<
+=== Starting DPO Training: length_balanced ===
+Device: cuda:0 | Total examples: 1500 | Batches per epoch: 750
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.1
+Epoch 1 | Update 5 (Step 40/750) | Loss: 0.6933 | Margin: -0.0019 | Pref Acc: 31.25% | GradNorm: 1.790
+Epoch 1 | Update 10 (Step 80/750) | Loss: 0.6899 | Margin: 0.0660 | Pref Acc: 75.00% | GradNorm: 1.693
+Epoch 1 | Update 15 (Step 120/750) | Loss: 0.6891 | Margin: 0.0821 | Pref Acc: 68.75% | GradNorm: 1.820
+Epoch 1 | Update 20 (Step 160/750) | Loss: 0.6917 | Margin: 0.0300 | Pref Acc: 56.25% | GradNorm: 1.748
+Epoch 1 | Update 25 (Step 200/750) | Loss: 0.6895 | Margin: 0.0748 | Pref Acc: 56.25% | GradNorm: 1.916
+Epoch 1 | Update 30 (Step 240/750) | Loss: 0.6911 | Margin: 0.0448 | Pref Acc: 56.25% | GradNorm: 1.577
+Epoch 1 | Update 35 (Step 280/750) | Loss: 0.6946 | Margin: -0.0265 | Pref Acc: 62.50% | GradNorm: 1.848
+Epoch 1 | Update 40 (Step 320/750) | Loss: 0.6919 | Margin: 0.0323 | Pref Acc: 50.00% | GradNorm: 1.726
+Epoch 1 | Update 45 (Step 360/750) | Loss: 0.6937 | Margin: -0.0036 | Pref Acc: 43.75% | GradNorm: 2.095
+Epoch 1 | Update 50 (Step 400/750) | Loss: 0.6814 | Margin: 0.2464 | Pref Acc: 50.00% | GradNorm: 1.797
+Epoch 1 | Update 55 (Step 440/750) | Loss: 0.6838 | Margin: 0.2001 | Pref Acc: 62.50% | GradNorm: 2.321
+Epoch 1 | Update 60 (Step 480/750) | Loss: 0.6884 | Margin: 0.1085 | Pref Acc: 62.50% | GradNorm: 1.903
+Epoch 1 | Update 65 (Step 520/750) | Loss: 0.6715 | Margin: 0.4633 | Pref Acc: 75.00% | GradNorm: 2.056
+Epoch 1 | Update 70 (Step 560/750) | Loss: 0.6980 | Margin: -0.0861 | Pref Acc: 50.00% | GradNorm: 2.004
+Epoch 1 | Update 75 (Step 600/750) | Loss: 0.6999 | Margin: -0.0929 | Pref Acc: 56.25% | GradNorm: 2.024
+Epoch 1 | Update 80 (Step 640/750) | Loss: 0.6689 | Margin: 0.5279 | Pref Acc: 62.50% | GradNorm: 2.503
+Epoch 1 | Update 85 (Step 680/750) | Loss: 0.6626 | Margin: 0.6833 | Pref Acc: 68.75% | GradNorm: 2.231
+Epoch 1 | Update 90 (Step 720/750) | Loss: 0.6496 | Margin: 0.9409 | Pref Acc: 87.50% | GradNorm: 1.941
+Epoch 1 | Update 94 (Step 750/750) | Loss: 0.6649 | Margin: 0.6520 | Pref Acc: 50.00% | GradNorm: 3.924
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/length_balanced...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/length_balanced_train_log.json
+
+>>> Evaluating standard_dpo (outputs/task1_dpo/standard) <<<
+
+>>> Evaluating length_balanced_dpo (outputs/task1_dpo/length_balanced) <<<
+
+==================================================
+      Length Confounding: Stratified Accuracy      
+==================================================
+| Model | Overall Acc | Pref. Longer Acc | Matched Acc | Rej. Longer Acc |
+| :--- | :--- | :--- | :--- | :--- |
+| standard_dpo | 57.32% | 45.12% | 62.20% | 64.63% |
+| length_balanced_dpo | 62.20% | 42.68% | 65.85% | 78.05% |
+
+==================================================
+      Word-Limit Compliance & Length Bias        
+==================================================
+| Model | Word-Limit Compliance (%) | Mean Words | Mean Response Tokens |
+| :--- | :--- | :--- | :--- |
+| standard_dpo | 40.00% | 39.9 words | 46.8 tokens |
+| length_balanced_dpo | 40.00% | 41.4 words | 48.4 tokens |
+
+Saved analysis summary to /kaggle/working/LLM-PostTraining/results/task1_dpo/length_analysis_summary.json
+
+[done] t1_analyze_length in 22.6 min
+
+
+
+
+
+total 46M
+-rw-r--r-- 1 root root 46M Oct 11 14:10 task1_adapters.tar.gz
+
+'total 46M\n-rw-r--r-- 1 root root 46M Oct 11 14:10 task1_adapters.tar.gz\n'
+
+
+results/logs:
+total 24K
+-rw-r--r-- 1 root root 5.7K Oct 11 13:47 t1_ablate_beta.log
+-rw-r--r-- 1 root root 3.7K Oct 11 14:10 t1_analyze_length.log
+-rw-r--r-- 1 root root  405 Oct 11 12:38 t1_eval_standard.log
+-rw-r--r-- 1 root root  448 Oct 11 11:59 t1_smoke.log
+-rw-r--r-- 1 root root 2.3K Oct 11 12:23 t1_train_standard.log
+
+results/task1_dpo:
+total 260K
+-rw-r--r-- 1 root root 34K Oct 11 13:16 beta_0_03_eval.json
+-rw-r--r-- 1 root root 11K Oct 11 13:10 beta_0_03_train_log.json
+-rw-r--r-- 1 root root 34K Oct 11 13:32 beta_0_10_eval.json
+-rw-r--r-- 1 root root 11K Oct 11 13:26 beta_0_10_train_log.json
+-rw-r--r-- 1 root root 34K Oct 11 13:47 beta_0_30_eval.json
+-rw-r--r-- 1 root root 11K Oct 11 13:41 beta_0_30_train_log.json
+-rw-r--r-- 1 root root 860 Oct 11 13:47 beta_ablation_summary.json
+-rw-r--r-- 1 root root 13K Oct 11 14:10 length_analysis_summary.json
+-rw-r--r-- 1 root root 27K Oct 11 14:07 length_balanced_train_log.json
+-rw-r--r-- 1 root root 802 Oct 11 11:59 smoke_train_log.json
+-rw-r--r-- 1 root root 34K Oct 11 12:38 standard_eval.json
+-rw-r--r-- 1 root root 27K Oct 11 12:23 standard_train_log.json
+
+5
+
+Remember: Task 4 needs outputs/task1_dpo/standard (do not delete or overwrite it).
+
+
+
+updating: results/ (stored 0%)
+updating: results/logs/ (stored 0%)
+updating: results/logs/t1_smoke.log (deflated 35%)
+updating: results/logs/t1_eval_standard.log (deflated 31%)
+updating: results/logs/t1_ablate_beta.log (deflated 78%)
+updating: results/logs/t1_train_standard.log (deflated 72%)
+updating: results/task1_dpo/ (stored 0%)
+updating: results/task1_dpo/smoke_train_log.json (deflated 62%)
+updating: results/task1_dpo/standard_eval.json (deflated 63%)
+updating: results/task1_dpo/standard_train_log.json (deflated 87%)
+updating: results/.done/ (stored 0%)
+updating: results/.done/setup (stored 0%)
+updating: results/.done/t1_smoke (stored 0%)
+updating: results/.done/t1_eval_standard (stored 0%)
+updating: results/.done/t1_train_standard (stored 0%)
+updating: outputs/ (stored 0%)
+updating: outputs/task1_dpo/ (stored 0%)
+updating: outputs/task1_dpo/beta_0_03/ (stored 0%)
+updating: outputs/task1_dpo/smoke/ (stored 0%)
+updating: outputs/task1_dpo/smoke/tokenizer.json (deflated 81%)
+updating: outputs/task1_dpo/smoke/merges.txt (deflated 57%)
+updating: outputs/task1_dpo/smoke/chat_template.jinja (deflated 71%)
+updating: outputs/task1_dpo/smoke/added_tokens.json (deflated 67%)
+updating: outputs/task1_dpo/smoke/special_tokens_map.json (deflated 69%)
+updating: outputs/task1_dpo/smoke/README.md (deflated 65%)
+updating: outputs/task1_dpo/smoke/tokenizer_config.json (deflated 89%)
+updating: outputs/task1_dpo/smoke/vocab.json (deflated 61%)
+updating: outputs/task1_dpo/smoke/adapter_config.json (deflated 55%)
+updating: outputs/task1_dpo/smoke/adapter_model.safetensors (deflated 9%)
+updating: outputs/task1_dpo/standard/ (stored 0%)
+updating: outputs/task1_dpo/standard/tokenizer.json (deflated 81%)
+updating: outputs/task1_dpo/standard/merges.txt (deflated 57%)
+updating: outputs/task1_dpo/standard/chat_template.jinja (deflated 71%)
+updating: outputs/task1_dpo/standard/added_tokens.json (deflated 67%)
+updating: outputs/task1_dpo/standard/special_tokens_map.json (deflated 69%)
+updating: outputs/task1_dpo/standard/README.md (deflated 65%)
+updating: outputs/task1_dpo/standard/tokenizer_config.json (deflated 89%)
+updating: outputs/task1_dpo/standard/vocab.json (deflated 61%)
+updating: outputs/task1_dpo/standard/adapter_config.json (deflated 56%)
+updating: outputs/task1_dpo/standard/adapter_model.safetensors (deflated 7%)
+  adding: results/logs/t1_analyze_length.log (deflated 70%)
+  adding: results/task1_dpo/beta_0_10_eval.json (deflated 63%)
+  adding: results/task1_dpo/beta_0_03_train_log.json (deflated 86%)
+  adding: results/task1_dpo/beta_0_03_eval.json (deflated 63%)
+  adding: results/task1_dpo/beta_ablation_summary.json (deflated 67%)
+  adding: results/task1_dpo/beta_0_30_eval.json (deflated 63%)
+  adding: results/task1_dpo/length_balanced_train_log.json (deflated 87%)
+  adding: results/task1_dpo/length_analysis_summary.json (deflated 81%)
+  adding: results/task1_dpo/beta_0_10_train_log.json (deflated 86%)
+  adding: results/task1_dpo/beta_0_30_train_log.json (deflated 85%)
+  adding: results/.done/t1_ablate_beta (stored 0%)
+  adding: results/.done/t1_analyze_length (stored 0%)
+  adding: outputs/task1_dpo/length_balanced/ (stored 0%)
+  adding: outputs/task1_dpo/length_balanced/tokenizer.json (deflated 81%)
+  adding: outputs/task1_dpo/length_balanced/merges.txt (deflated 57%)
+  adding: outputs/task1_dpo/length_balanced/chat_template.jinja (deflated 71%)
+  adding: outputs/task1_dpo/length_balanced/added_tokens.json (deflated 67%)
+  adding: outputs/task1_dpo/length_balanced/special_tokens_map.json (deflated 69%)
+  adding: outputs/task1_dpo/length_balanced/README.md (deflated 65%)
+  adding: outputs/task1_dpo/length_balanced/tokenizer_config.json (deflated 89%)
+  adding: outputs/task1_dpo/length_balanced/vocab.json (deflated 61%)
+  adding: outputs/task1_dpo/length_balanced/adapter_config.json (deflated 56%)
+  adding: outputs/task1_dpo/length_balanced/adapter_model.safetensors (deflated 7%)
+  adding: outputs/task1_dpo/beta_0_03/tokenizer.json (deflated 81%)
+  adding: outputs/task1_dpo/beta_0_03/merges.txt (deflated 57%)
+  adding: outputs/task1_dpo/beta_0_03/chat_template.jinja (deflated 71%)
+  adding: outputs/task1_dpo/beta_0_03/added_tokens.json (deflated 67%)
+  adding: outputs/task1_dpo/beta_0_03/special_tokens_map.json (deflated 69%)
+  adding: outputs/task1_dpo/beta_0_03/README.md (deflated 65%)
+  adding: outputs/task1_dpo/beta_0_03/tokenizer_config.json (deflated 89%)
+  adding: outputs/task1_dpo/beta_0_03/vocab.json (deflated 61%)
+  adding: outputs/task1_dpo/beta_0_03/adapter_config.json (deflated 55%)
+  adding: outputs/task1_dpo/beta_0_03/adapter_model.safetensors (deflated 7%)
+  adding: outputs/task1_dpo/beta_0_30/ (stored 0%)
+  adding: outputs/task1_dpo/beta_0_30/tokenizer.json (deflated 81%)
+  adding: outputs/task1_dpo/beta_0_30/merges.txt (deflated 57%)
+  adding: outputs/task1_dpo/beta_0_30/chat_template.jinja (deflated 71%)
+  adding: outputs/task1_dpo/beta_0_30/added_tokens.json (deflated 67%)
+  adding: outputs/task1_dpo/beta_0_30/special_tokens_map.json (deflated 69%)
+  adding: outputs/task1_dpo/beta_0_30/README.md (deflated 65%)
+  adding: outputs/task1_dpo/beta_0_30/tokenizer_config.json (deflated 89%)
+  adding: outputs/task1_dpo/beta_0_30/vocab.json (deflated 61%)
+  adding: outputs/task1_dpo/beta_0_30/adapter_config.json (deflated 55%)
+  adding: outputs/task1_dpo/beta_0_30/adapter_model.safetensors (deflated 7%)
+  adding: outputs/task1_dpo/beta_0_10/ (stored 0%)
+  adding: outputs/task1_dpo/beta_0_10/tokenizer.json (deflated 81%)
+  adding: outputs/task1_dpo/beta_0_10/merges.txt (deflated 57%)
+  adding: outputs/task1_dpo/beta_0_10/chat_template.jinja (deflated 71%)
+  adding: outputs/task1_dpo/beta_0_10/added_tokens.json (deflated 67%)
+  adding: outputs/task1_dpo/beta_0_10/special_tokens_map.json (deflated 69%)
+  adding: outputs/task1_dpo/beta_0_10/README.md (deflated 65%)
+  adding: outputs/task1_dpo/beta_0_10/tokenizer_config.json (deflated 89%)
+  adding: outputs/task1_dpo/beta_0_10/vocab.json (deflated 61%)
+  adding: outputs/task1_dpo/beta_0_10/adapter_config.json (deflated 55%)
+  adding: outputs/task1_dpo/beta_0_10/adapter_model.safetensors (deflated 7%)
+Results and outputs archived to /kaggle/working/LLM_PostTraining_results.zip
+
