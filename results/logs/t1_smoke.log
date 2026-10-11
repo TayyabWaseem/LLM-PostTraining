@@ -1,0 +1,8 @@
+=== Starting DPO Training: smoke ===
+Device: cuda:0 | Total examples: 32 | Batches per epoch: 16
+Epochs: 1 | Batch size: 2 | Grad accum: 8 | Beta: 0.1
+Epoch 1 | Update 2 (Step 16/16) | Loss: 0.6939 | Margin: -0.0146 | Pref Acc: 31.25% | GradNorm: 2.030
+Saving trained adapter to /kaggle/working/LLM-PostTraining/outputs/task1_dpo/smoke...
+Training logs saved to /kaggle/working/LLM-PostTraining/results/task1_dpo/smoke_train_log.json
+
+[exit 0] 58s

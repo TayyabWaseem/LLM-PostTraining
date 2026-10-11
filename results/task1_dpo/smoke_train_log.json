@@ -1,0 +1,36 @@
+{
+  "run_name": "smoke",
+  "config_path": "configs/dpo.yaml",
+  "dataset_path": "data/dpo_standard_train.jsonl",
+  "beta": 0.1,
+  "total_examples": 32,
+  "total_steps": 16,
+  "total_updates": 2,
+  "final_loss": 0.6939,
+  "history": [
+    {
+      "step": 8,
+      "update": 1,
+      "epoch": 1,
+      "loss": 0.6931,
+      "logit_mean": 0.0,
+      "dpo_margin_mean": 0.0,
+      "policy_margin_mean": -79.805,
+      "ref_margin_mean": -79.805,
+      "preference_accuracy": 0.0,
+      "grad_norm": 1.9388
+    },
+    {
+      "step": 16,
+      "update": 2,
+      "epoch": 1,
+      "loss": 0.6939,
+      "logit_mean": -0.0015,
+      "dpo_margin_mean": -0.0146,
+      "policy_margin_mean": -91.7833,
+      "ref_margin_mean": -91.7687,
+      "preference_accuracy": 0.3125,
+      "grad_norm": 2.0302
+    }
+  ]
+}
