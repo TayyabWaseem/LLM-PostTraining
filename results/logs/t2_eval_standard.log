@@ -1,0 +1,13 @@
+
+--- Evaluating PPO Policy: standard ---
+Total evaluation prompts: 200 | Eval response cap: 768 tokens
+
+--- PPO Evaluation Summary ---
+Effective Reward: 1.4683 ± 1.5298
+Token KL vs Ref: 0.00084 ± 0.00704
+Entropy: 0.7787
+Mean Response Length: 304.0 tokens
+EOS Rate: 90.0% | Truncation Rate: 10.0%
+Saved evaluation results to /kaggle/working/LLM-PostTraining/results/task2_ppo/standard_eval.json
+
+[exit 0] 4536s
