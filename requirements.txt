@@ -5,7 +5,7 @@ trl==0.27.2
 peft==0.17.1
 datasets>=3.0,<5
 accelerate>=1.0,<2
-bitsandbytes>=0.45
+bitsandbytes>=0.46.1
 huggingface_hub>=0.27
 safetensors>=0.4
 pyyaml>=6.0
