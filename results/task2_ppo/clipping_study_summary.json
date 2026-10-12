@@ -1,0 +1,63 @@
+{
+  "cached_geometric_study": {
+    "eps_0.05": {
+      "epsilon": 0.05,
+      "clip_fraction": 0.8787,
+      "affected_fraction": 0.8787,
+      "unclipped_surrogate": 0.3808,
+      "clipped_objective": 0.0388,
+      "clipping_bound_gap": 0.342
+    },
+    "eps_0.2": {
+      "epsilon": 0.2,
+      "clip_fraction": 0.5399,
+      "affected_fraction": 0.5399,
+      "unclipped_surrogate": 0.3808,
+      "clipped_objective": 0.1467,
+      "clipping_bound_gap": 0.2341
+    },
+    "eps_0.5": {
+      "epsilon": 0.5,
+      "clip_fraction": 0.1394,
+      "affected_fraction": 0.1394,
+      "unclipped_surrogate": 0.3808,
+      "clipped_objective": 0.2799,
+      "clipping_bound_gap": 0.1009
+    }
+  },
+  "fork_results": [
+    {
+      "epsilon": 0.05,
+      "updates": 8,
+      "eval_reward": 1.351572265625,
+      "eval_kl": -0.0005981455740402453,
+      "eval_response_length": 320.84,
+      "eval_truncation_rate": 0.1,
+      "stability_max_grad_norm": 1.7788,
+      "stability_std_kl": 0.002165929361729048,
+      "train_mean_clip_fraction": 0.072075
+    },
+    {
+      "epsilon": 0.2,
+      "updates": 8,
+      "eval_reward": 1.44431640625,
+      "eval_kl": 5.224397878919262e-05,
+      "eval_response_length": 335.38,
+      "eval_truncation_rate": 0.14,
+      "stability_max_grad_norm": 2.2541,
+      "stability_std_kl": 0.0020821049295124392,
+      "train_mean_clip_fraction": 0.0055
+    },
+    {
+      "epsilon": 0.5,
+      "updates": 8,
+      "eval_reward": 1.52544921875,
+      "eval_kl": 0.0011203309394477402,
+      "eval_response_length": 324.42,
+      "eval_truncation_rate": 0.12,
+      "stability_max_grad_norm": 1.5937,
+      "stability_std_kl": 0.007529835240561377,
+      "train_mean_clip_fraction": 0.0
+    }
+  ]
+}
