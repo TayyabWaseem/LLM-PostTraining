@@ -2,17 +2,17 @@
   "summary": {
     "name": "canonical_grpo",
     "adapter": "outputs/task3_grpo/norm_canonical",
-    "n_evaluated": 200,
-    "mean_reward": 1.18689453125,
-    "std_reward": 1.6661932264000867,
-    "mean_token_kl": 0.0006193743967475029,
-    "std_token_kl": 0.0055145206835306515,
-    "mean_entropy": 0.788310301285237,
-    "mean_response_length": 245.355,
-    "std_response_length": 182.5735987896388,
-    "median_response_length": 228.0,
-    "eos_termination_rate": 0.785,
-    "truncation_rate": 0.215
+    "n_evaluated": 50,
+    "mean_reward": 1.0659814453125,
+    "std_reward": 1.5846189478958514,
+    "mean_token_kl": 0.0013381969557667616,
+    "std_token_kl": 0.006750493060322475,
+    "mean_entropy": 0.7502326323837042,
+    "mean_response_length": 262.32,
+    "std_response_length": 194.12258395148154,
+    "median_response_length": 242.5,
+    "eos_termination_rate": 0.76,
+    "truncation_rate": 0.24
   },
   "qualitative_samples": [
     {

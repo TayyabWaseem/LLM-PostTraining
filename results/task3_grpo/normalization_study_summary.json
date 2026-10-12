@@ -1,0 +1,57 @@
+{
+  "theoretical_analysis": {
+    "max_completion_length": 512,
+    "token_gradient_weight_ratio_short_vs_long": {
+      "short_length_100": {
+        "canonical_weight": 0.01,
+        "dr_grpo_weight": 0.00195
+      },
+      "long_length_500": {
+        "canonical_weight": 0.002,
+        "dr_grpo_weight": 0.00195
+      },
+      "canonical_relative_short_bias": 5.0,
+      "dr_grpo_relative_short_bias": 1.0
+    }
+  },
+  "conditions": [
+    {
+      "condition": "canonical_grpo",
+      "loss_type": "grpo",
+      "description": "Per-sequence 1/T_k normalization (overweights short completions)",
+      "updates": 8,
+      "eval_reward_mean": 1.0659814453125,
+      "eval_reward_std": 1.5846189478958514,
+      "eval_token_kl": 0.0013381969557667616,
+      "eval_entropy": 0.7502326323837042,
+      "eval_mean_response_length": 262.32,
+      "eval_std_response_length": 194.12258395148154,
+      "eval_median_response_length": 242.5,
+      "eval_truncation_rate": 0.24,
+      "eval_eos_rate": 0.76,
+      "train_mean_grad_norm": 0.3489,
+      "train_max_grad_norm": 0.8912,
+      "train_mean_length": 290.78,
+      "length_conditioned_reward_corr": -0.1882
+    },
+    {
+      "condition": "dr_grpo",
+      "loss_type": "dr_grpo",
+      "description": "Constant 1/T_max normalization (length-invariant token weighting)",
+      "updates": 8,
+      "eval_reward_mean": 0.96283203125,
+      "eval_reward_std": 1.9299766358260908,
+      "eval_token_kl": 0.0006940403374028392,
+      "eval_entropy": 0.7405620364099741,
+      "eval_mean_response_length": 266.28,
+      "eval_std_response_length": 204.75029084228427,
+      "eval_median_response_length": 267.0,
+      "eval_truncation_rate": 0.3,
+      "eval_eos_rate": 0.7,
+      "train_mean_grad_norm": 0.0586,
+      "train_max_grad_norm": 0.1051,
+      "train_mean_length": 278.56,
+      "length_conditioned_reward_corr": -0.1046
+    }
+  ]
+}

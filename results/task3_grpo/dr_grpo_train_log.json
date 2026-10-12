@@ -6,7 +6,7 @@
   "num_generations": 4,
   "clip_epsilon": 0.2,
   "kl_beta": 0.1,
-  "total_wall_clock_sec": 469.8,
+  "total_wall_clock_sec": 471.67,
   "peak_vram_gb": 8.083,
   "history": [
     {
@@ -23,7 +23,7 @@
       "mean_response_length": 512.0,
       "truncation_rate": 1.0,
       "all_eos_terminated": false,
-      "wall_clock_sec": 82.79,
+      "wall_clock_sec": 83.66,
       "peak_vram_gb": 8.003
     },
     {
@@ -40,7 +40,7 @@
       "mean_response_length": 351.5,
       "truncation_rate": 0.0,
       "all_eos_terminated": true,
-      "wall_clock_sec": 154.09,
+      "wall_clock_sec": 155.25,
       "peak_vram_gb": 8.003
     },
     {
@@ -57,7 +57,7 @@
       "mean_response_length": 171.0,
       "truncation_rate": 0.0,
       "all_eos_terminated": true,
-      "wall_clock_sec": 198.93,
+      "wall_clock_sec": 200.05,
       "peak_vram_gb": 8.003
     },
     {
@@ -74,7 +74,7 @@
       "mean_response_length": 39.75,
       "truncation_rate": 0.0,
       "all_eos_terminated": true,
-      "wall_clock_sec": 210.84,
+      "wall_clock_sec": 211.95,
       "peak_vram_gb": 8.003
     },
     {
@@ -91,7 +91,7 @@
       "mean_response_length": 512.0,
       "truncation_rate": 1.0,
       "all_eos_terminated": false,
-      "wall_clock_sec": 294.24,
+      "wall_clock_sec": 295.7,
       "peak_vram_gb": 8.026
     },
     {
@@ -108,7 +108,7 @@
       "mean_response_length": 236.5,
       "truncation_rate": 0.0,
       "all_eos_terminated": true,
-      "wall_clock_sec": 362.31,
+      "wall_clock_sec": 364.05,
       "peak_vram_gb": 8.026
     },
     {
@@ -125,7 +125,7 @@
       "mean_response_length": 56.0,
       "truncation_rate": 0.0,
       "all_eos_terminated": true,
-      "wall_clock_sec": 383.89,
+      "wall_clock_sec": 385.51,
       "peak_vram_gb": 8.026
     },
     {
@@ -142,7 +142,7 @@
       "mean_response_length": 349.75,
       "truncation_rate": 0.25,
       "all_eos_terminated": false,
-      "wall_clock_sec": 469.25,
+      "wall_clock_sec": 471.13,
       "peak_vram_gb": 8.083
     }
   ]
