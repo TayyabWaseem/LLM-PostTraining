@@ -1,0 +1,30 @@
+==================================================
+      Task 3: Equal-Generation Group-Size Study   
+==================================================
+Total cached prompts: 24 | Total generations: 192
+Candidate group sizes K: [2, 4, 8]
+
+Prompt Difficulty Binning (Median Split = 2.1987):
+  Hard / Low-Reward Prompts: 12
+  Easy / High-Reward Prompts: 12
+
+--- Equal-Generation Group-Size Results (Overall) ---
+| Group Size K | Total Gens | Num Groups | Informative % | Uninformative % | Mean Reward Std | Advantage Var |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| K = 2 | 192 | 96 | 93.8% | 6.2% | 0.3846 | 0.9375 |
+| K = 4 | 192 | 48 | 95.8% | 4.2% | 0.5410 | 0.9583 |
+| K = 8 | 192 | 24 | 95.8% | 4.2% | 0.6191 | 0.9583 |
+
+--- Prompt Difficulty Breakdown ---
+| Group Size K | Bin | Num Groups | Informative % | Mean Reward Std | Advantage Var |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| K = 2 | Hard (Low-Reward) | 48 | 89.6% | 0.5283 | 0.8958 |
+| K = 2 | Easy (High-Reward) | 48 | 97.9% | 0.2408 | 0.9791 |
+| K = 4 | Hard (Low-Reward) | 24 | 91.7% | 0.7115 | 0.9167 |
+| K = 4 | Easy (High-Reward) | 24 | 100.0% | 0.3705 | 1.0000 |
+| K = 8 | Hard (Low-Reward) | 12 | 91.7% | 0.8002 | 0.9167 |
+| K = 8 | Easy (High-Reward) | 12 | 100.0% | 0.4379 | 1.0000 |
+
+Saved Group-Size Study summary to /kaggle/working/LLM-PostTraining/results/task3_grpo/group_size_study_summary.json
+
+[exit 0] 1s

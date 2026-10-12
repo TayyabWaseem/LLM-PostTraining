@@ -1,0 +1,102 @@
+{
+  "total_prompts": 24,
+  "total_generations": 192,
+  "difficulty_binning": {
+    "metric": "mean_cached_reward_per_prompt",
+    "median_threshold": 2.1987,
+    "num_hard_prompts": 12,
+    "num_easy_prompts": 12
+  },
+  "by_group_size": {
+    "K_2": {
+      "K": 2,
+      "overall": {
+        "num_groups": 96,
+        "total_generations": 192,
+        "informative_group_rate": 0.9375,
+        "uninformative_group_rate": 0.0625,
+        "mean_within_group_std": 0.3846,
+        "relative_signal_variance": 0.9375,
+        "centered_reward_variance": 0.3368
+      },
+      "hard_prompts": {
+        "num_groups": 48,
+        "total_generations": 96,
+        "informative_group_rate": 0.8958,
+        "uninformative_group_rate": 0.1042,
+        "mean_within_group_std": 0.5283,
+        "relative_signal_variance": 0.8958,
+        "centered_reward_variance": 0.5741
+      },
+      "easy_prompts": {
+        "num_groups": 48,
+        "total_generations": 96,
+        "informative_group_rate": 0.9792,
+        "uninformative_group_rate": 0.0208,
+        "mean_within_group_std": 0.2408,
+        "relative_signal_variance": 0.9791,
+        "centered_reward_variance": 0.0996
+      }
+    },
+    "K_4": {
+      "K": 4,
+      "overall": {
+        "num_groups": 48,
+        "total_generations": 192,
+        "informative_group_rate": 0.9583,
+        "uninformative_group_rate": 0.0417,
+        "mean_within_group_std": 0.541,
+        "relative_signal_variance": 0.9583,
+        "centered_reward_variance": 0.4677
+      },
+      "hard_prompts": {
+        "num_groups": 24,
+        "total_generations": 96,
+        "informative_group_rate": 0.9167,
+        "uninformative_group_rate": 0.0833,
+        "mean_within_group_std": 0.7115,
+        "relative_signal_variance": 0.9167,
+        "centered_reward_variance": 0.7578
+      },
+      "easy_prompts": {
+        "num_groups": 24,
+        "total_generations": 96,
+        "informative_group_rate": 1.0,
+        "uninformative_group_rate": 0.0,
+        "mean_within_group_std": 0.3705,
+        "relative_signal_variance": 1.0,
+        "centered_reward_variance": 0.1776
+      }
+    },
+    "K_8": {
+      "K": 8,
+      "overall": {
+        "num_groups": 24,
+        "total_generations": 192,
+        "informative_group_rate": 0.9583,
+        "uninformative_group_rate": 0.0417,
+        "mean_within_group_std": 0.6191,
+        "relative_signal_variance": 0.9583,
+        "centered_reward_variance": 0.5599
+      },
+      "hard_prompts": {
+        "num_groups": 12,
+        "total_generations": 96,
+        "informative_group_rate": 0.9167,
+        "uninformative_group_rate": 0.0833,
+        "mean_within_group_std": 0.8002,
+        "relative_signal_variance": 0.9167,
+        "centered_reward_variance": 0.8532
+      },
+      "easy_prompts": {
+        "num_groups": 12,
+        "total_generations": 96,
+        "informative_group_rate": 1.0,
+        "uninformative_group_rate": 0.0,
+        "mean_within_group_std": 0.4379,
+        "relative_signal_variance": 1.0,
+        "centered_reward_variance": 0.2666
+      }
+    }
+  }
+}
