@@ -1,0 +1,42 @@
+[
+  {
+    "condition": "midpoint_step_0",
+    "kl_beta": "baseline",
+    "updates": 0,
+    "reward": 1.228896484375,
+    "token_kl": 0.00033297884045168757,
+    "entropy": 0.7097511783242225,
+    "mean_response_length": 318.56,
+    "truncation_rate": 0.12
+  },
+  {
+    "condition": "beta_kl_0.00",
+    "kl_beta": 0.0,
+    "updates": 8,
+    "reward": 1.5059710693359376,
+    "token_kl": 0.001884890543151414,
+    "entropy": 0.7485002807527781,
+    "mean_response_length": 324.92,
+    "truncation_rate": 0.16
+  },
+  {
+    "condition": "beta_kl_0.10",
+    "kl_beta": 0.1,
+    "updates": 8,
+    "reward": 1.44431640625,
+    "token_kl": 5.224397878919262e-05,
+    "entropy": 0.7905145207047463,
+    "mean_response_length": 335.38,
+    "truncation_rate": 0.14
+  },
+  {
+    "condition": "beta_kl_0.20",
+    "kl_beta": 0.2,
+    "updates": 8,
+    "reward": 1.62787109375,
+    "token_kl": 0.0009182857392625011,
+    "entropy": 0.7475532709062099,
+    "mean_response_length": 299.72,
+    "truncation_rate": 0.08
+  }
+]
