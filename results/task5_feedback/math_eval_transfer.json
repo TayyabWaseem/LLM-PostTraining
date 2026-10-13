@@ -1,0 +1,149 @@
+{
+  "dataset": "transfer",
+  "total_examples": 100,
+  "metrics": {
+    "sft": {
+      "exact_accuracy": 0.36,
+      "format_compliance": 0.48,
+      "mean_response_length": 160.69,
+      "std_response_length": 65.06,
+      "total_examples": 100,
+      "win_rate_vs_sft": 0.5,
+      "verifier_judge_agreement": 1.0
+    },
+    "rlvr": {
+      "exact_accuracy": 0.47,
+      "format_compliance": 0.59,
+      "mean_response_length": 161.26,
+      "std_response_length": 72.48,
+      "total_examples": 100,
+      "win_rate_vs_sft": 0.545,
+      "verifier_judge_agreement": 0.48
+    },
+    "rlaif": {
+      "exact_accuracy": 0.45,
+      "format_compliance": 0.53,
+      "mean_response_length": 160.34,
+      "std_response_length": 69.97,
+      "total_examples": 100,
+      "win_rate_vs_sft": 0.55,
+      "verifier_judge_agreement": 0.58
+    }
+  },
+  "pairwise_vs_sft": {
+    "rlvr": {
+      "win_rate_vs_sft": 0.545,
+      "wins": 31,
+      "ties": 47,
+      "losses": 22,
+      "verifier_judge_agreement_rate": 0.48,
+      "sample_pairs": [
+        {
+          "problem_index": 0,
+          "judge_preference": "TIE",
+          "cand_correct": false,
+          "sft_correct": false,
+          "agreement": true
+        },
+        {
+          "problem_index": 1,
+          "judge_preference": "TIE",
+          "cand_correct": true,
+          "sft_correct": true,
+          "agreement": true
+        },
+        {
+          "problem_index": 2,
+          "judge_preference": "B",
+          "cand_correct": true,
+          "sft_correct": false,
+          "agreement": false
+        },
+        {
+          "problem_index": 3,
+          "judge_preference": "A",
+          "cand_correct": true,
+          "sft_correct": false,
+          "agreement": true
+        },
+        {
+          "problem_index": 4,
+          "judge_preference": "TIE",
+          "cand_correct": false,
+          "sft_correct": false,
+          "agreement": true
+        }
+      ]
+    },
+    "rlaif": {
+      "win_rate_vs_sft": 0.55,
+      "wins": 28,
+      "ties": 54,
+      "losses": 18,
+      "verifier_judge_agreement_rate": 0.58,
+      "sample_pairs": [
+        {
+          "problem_index": 0,
+          "judge_preference": "TIE",
+          "cand_correct": false,
+          "sft_correct": false,
+          "agreement": true
+        },
+        {
+          "problem_index": 1,
+          "judge_preference": "TIE",
+          "cand_correct": true,
+          "sft_correct": true,
+          "agreement": true
+        },
+        {
+          "problem_index": 2,
+          "judge_preference": "A",
+          "cand_correct": true,
+          "sft_correct": false,
+          "agreement": true
+        },
+        {
+          "problem_index": 3,
+          "judge_preference": "A",
+          "cand_correct": true,
+          "sft_correct": false,
+          "agreement": true
+        },
+        {
+          "problem_index": 4,
+          "judge_preference": "TIE",
+          "cand_correct": false,
+          "sft_correct": false,
+          "agreement": true
+        }
+      ]
+    }
+  },
+  "transfer_drops": {
+    "sft": {
+      "accuracy_drop": -0.0767,
+      "win_rate_drop": 0.0,
+      "in_domain_accuracy": 0.2833,
+      "transfer_accuracy": 0.36,
+      "in_domain_win_rate": 0.5,
+      "transfer_win_rate": 0.5
+    },
+    "rlvr": {
+      "accuracy_drop": -0.1733,
+      "win_rate_drop": -0.0833,
+      "in_domain_accuracy": 0.2967,
+      "transfer_accuracy": 0.47,
+      "in_domain_win_rate": 0.4617,
+      "transfer_win_rate": 0.545
+    },
+    "rlaif": {
+      "accuracy_drop": -0.1867,
+      "win_rate_drop": -0.0683,
+      "in_domain_accuracy": 0.2633,
+      "transfer_accuracy": 0.45,
+      "in_domain_win_rate": 0.4817,
+      "transfer_win_rate": 0.55
+    }
+  }
+}
