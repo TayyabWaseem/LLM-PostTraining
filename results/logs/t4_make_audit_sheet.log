@@ -1,0 +1,8 @@
+==================================================
+      Task 4: Create Fixed 60-Example Audit Sheet  
+==================================================
+Sampled 60 fixed audit prompt IDs (30 SAFE + 30 UNSAFE) with seed=6304.
+Saved manual audit sheet to /kaggle/working/LLM-PostTraining/results/task4_safety/manual_audit_sheet.csv
+Saved audit IDs list to /kaggle/working/LLM-PostTraining/results/task4_safety/manual_audit_ids.csv
+
+[exit 0] 1s
