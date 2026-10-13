@@ -1,0 +1,36 @@
+==================================================
+      Task 5: RLVR vs RLAIF Feedback Synthesis    
+==================================================
+
+### 1. In-Domain (GSM8K) and Out-of-Domain (SVAMP) Math Performance
+| Metric | Dataset | SFT Baseline | RLVR Policy | RLAIF Policy |
+| :--- | :--- | :--- | :--- | :--- |
+| **Exact Accuracy** | GSM8K (In-Domain) | 28.3% | 29.7% | 26.3% |
+| **Win Rate vs SFT** | GSM8K (In-Domain) | 50.0% | 46.2% | 48.2% |
+| **Mean Length** | GSM8K (In-Domain) | 280.5 | 277.2 | 282.0 |
+| **Exact Accuracy** | SVAMP (Transfer) | 36.0% | 47.0% | 45.0% |
+| **Win Rate vs SFT** | SVAMP (Transfer) | 50.0% | 54.5% | 55.0% |
+| **Accuracy Drop** | GSM8K $\to$ SVAMP | -7.7% | -17.3% | -18.7% |
+
+### 2. Controlled Diagnostic Sensitivity Analysis
+| Sensitivity Metric | Theoretical Target | Exact Verifier | AI Judge |
+| :--- | :--- | :--- | :--- |
+| **Reasoning Sensitivity ($S_{reason}$)** | Detect corrupted reasoning | 0.0% | 30.0% |
+| **Outcome Sensitivity ($S_{outcome}$)** | Detect wrong final answers | 100.0% | 55.0% |
+
+**Key Diagnostic Findings**:
+- **Reasoning-Only Corruption**: Verifier tie rate is 100.0% (outcome blindness); AI Judge better-preference rate is 30.0%.
+- **Persuasive Filler Vulnerability**: AI Judge preferred filler 75.0% of the time (measuring verbosity/persuasion bias).
+- **Gold Distractor Robustness**: Verifier better-rate is 100.0%; AI Judge better-rate is 60.0%.
+
+### 3. Feedback Source Trade-off Matrix
+| Dimension | Exact Verifier (RLVR) | AI Preference Judge (RLAIF) |
+| :--- | :--- | :--- |
+| **Domain Coverage** | Narrow (requires ground-truth checkers, sandboxes, or unit tests; inapplicable to open-ended dialogue/creative tasks). | Broad (generalizes to open-ended chat, creative writing, nuanced instruction-following without formal oracles). |
+| **Label Noise & Variance** | Zero noise (100% deterministic, reproducible, independent of prompt phrasing or response order). | Moderate to High noise (subject to position bias, temperature jitter, and surface prompt heuristics). |
+| **Optimization Exploitability** | Outcome-shortcut hacking: rewards lucky or illogical reasoning that stumbles upon the correct designated final token. | Style/fluff hacking: vulnerable to assertive formatting, excessive verbosity, and persuasive filler phrases. |
+| **Inference / Training Compute** | Near zero (regex extraction and float comparison execute on CPU in < 1 ms per problem). | High (requires full forward-pass generation over multiple billion parameters per candidate pair or group). |
+
+Consolidated Task 5 synthesis saved to /kaggle/working/LLM-PostTraining/results/task5_feedback/task5_feedback_synthesis.json
+
+[exit 0] 1s

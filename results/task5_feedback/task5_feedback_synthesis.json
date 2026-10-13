@@ -1,0 +1,120 @@
+{
+  "in_domain_gsm": {
+    "sft": {
+      "exact_accuracy": 0.2833,
+      "format_compliance": 0.3633,
+      "mean_response_length": 280.54,
+      "std_response_length": 85.39,
+      "total_examples": 300,
+      "win_rate_vs_sft": 0.5,
+      "verifier_judge_agreement": 1.0
+    },
+    "rlvr": {
+      "exact_accuracy": 0.2967,
+      "format_compliance": 0.4033,
+      "mean_response_length": 277.19,
+      "std_response_length": 82.93,
+      "total_examples": 300,
+      "win_rate_vs_sft": 0.4617,
+      "verifier_judge_agreement": 0.3533
+    },
+    "rlaif": {
+      "exact_accuracy": 0.2633,
+      "format_compliance": 0.33,
+      "mean_response_length": 281.99,
+      "std_response_length": 87.93,
+      "total_examples": 300,
+      "win_rate_vs_sft": 0.4817,
+      "verifier_judge_agreement": 0.38
+    }
+  },
+  "transfer_svamp": {
+    "sft": {
+      "exact_accuracy": 0.36,
+      "format_compliance": 0.48,
+      "mean_response_length": 160.69,
+      "std_response_length": 65.06,
+      "total_examples": 100,
+      "win_rate_vs_sft": 0.5,
+      "verifier_judge_agreement": 1.0
+    },
+    "rlvr": {
+      "exact_accuracy": 0.47,
+      "format_compliance": 0.59,
+      "mean_response_length": 161.26,
+      "std_response_length": 72.48,
+      "total_examples": 100,
+      "win_rate_vs_sft": 0.545,
+      "verifier_judge_agreement": 0.48
+    },
+    "rlaif": {
+      "exact_accuracy": 0.45,
+      "format_compliance": 0.53,
+      "mean_response_length": 160.34,
+      "std_response_length": 69.97,
+      "total_examples": 100,
+      "win_rate_vs_sft": 0.55,
+      "verifier_judge_agreement": 0.58
+    }
+  },
+  "transfer_drops": {
+    "sft": {
+      "accuracy_drop": -0.0767,
+      "win_rate_drop": 0.0,
+      "in_domain_accuracy": 0.2833,
+      "transfer_accuracy": 0.36,
+      "in_domain_win_rate": 0.5,
+      "transfer_win_rate": 0.5
+    },
+    "rlvr": {
+      "accuracy_drop": -0.1733,
+      "win_rate_drop": -0.0833,
+      "in_domain_accuracy": 0.2967,
+      "transfer_accuracy": 0.47,
+      "in_domain_win_rate": 0.4617,
+      "transfer_win_rate": 0.545
+    },
+    "rlaif": {
+      "accuracy_drop": -0.1867,
+      "win_rate_drop": -0.0683,
+      "in_domain_accuracy": 0.2633,
+      "transfer_accuracy": 0.45,
+      "in_domain_win_rate": 0.4817,
+      "transfer_win_rate": 0.55
+    }
+  },
+  "diagnostic_sensitivities": {
+    "S_reason": {
+      "verifier": 0.0,
+      "ai_judge": 0.3,
+      "description": "Pr[R(y_clean) > R(y_reason_corrupt)] for pairs with same correct final answer"
+    },
+    "S_outcome": {
+      "verifier": 1.0,
+      "ai_judge": 0.55,
+      "description": "Pr[R(y_correct) > R(y_wrong)] for outcome-changing pairs"
+    }
+  },
+  "tradeoff_matrix": {
+    "coverage": {
+      "dimension": "Domain Coverage",
+      "exact_verifier": "Narrow (requires ground-truth checkers, sandboxes, or unit tests; inapplicable to open-ended dialogue/creative tasks).",
+      "ai_judge": "Broad (generalizes to open-ended chat, creative writing, nuanced instruction-following without formal oracles)."
+    },
+    "noise": {
+      "dimension": "Label Noise & Variance",
+      "exact_verifier": "Zero noise (100% deterministic, reproducible, independent of prompt phrasing or response order).",
+      "ai_judge": "Moderate to High noise (subject to position bias, temperature jitter, and surface prompt heuristics)."
+    },
+    "exploitability": {
+      "dimension": "Optimization Exploitability",
+      "exact_verifier": "Outcome-shortcut hacking: rewards lucky or illogical reasoning that stumbles upon the correct designated final token.",
+      "ai_judge": "Style/fluff hacking: vulnerable to assertive formatting, excessive verbosity, and persuasive filler phrases."
+    },
+    "compute_cost": {
+      "dimension": "Inference / Training Compute",
+      "exact_verifier": "Near zero (regex extraction and float comparison execute on CPU in < 1 ms per problem).",
+      "ai_judge": "High (requires full forward-pass generation over multiple billion parameters per candidate pair or group)."
+    }
+  }
+}
