@@ -1,0 +1,90 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+==================================================
+  Task 5: Math Evaluation on GSM (300 examples)  
+==================================================
+
+>>> Generating GSM responses for policy: SFT <<<
+Using untouched base model: Qwen/Qwen2.5-1.5B-Instruct
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:  68%|██████▊   | 231/338 [00:00<00:00, 2304.29it/s]
+Loading weights: 100%|██████████| 338/338 [00:00<00:00, 2370.60it/s]
+  Processed 8/300 examples...
+  Processed 88/300 examples...
+  Processed 168/300 examples...
+  Processed 248/300 examples...
+  Processed 300/300 examples...
+Saved 300 responses for 'sft' to /kaggle/working/LLM-PostTraining/results/task5_feedback/generated_gsm_sft.jsonl
+
+>>> Generating GSM responses for policy: RLVR <<<
+Loading checkpoint: /kaggle/working/LLM-PostTraining/checkpoints/rlvr_policy
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:  70%|██████▉   | 235/338 [00:00<00:00, 2337.88it/s]
+Loading weights: 100%|██████████| 338/338 [00:00<00:00, 2358.13it/s]
+  Processed 8/300 examples...
+  Processed 88/300 examples...
+  Processed 168/300 examples...
+  Processed 248/300 examples...
+  Processed 300/300 examples...
+Saved 300 responses for 'rlvr' to /kaggle/working/LLM-PostTraining/results/task5_feedback/generated_gsm_rlvr.jsonl
+
+>>> Generating GSM responses for policy: RLAIF <<<
+Loading checkpoint: /kaggle/working/LLM-PostTraining/checkpoints/rlaif_policy
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:  66%|██████▌   | 223/338 [00:00<00:00, 2216.68it/s]
+Loading weights: 100%|██████████| 338/338 [00:00<00:00, 2292.53it/s]
+  Processed 8/300 examples...
+  Processed 88/300 examples...
+  Processed 168/300 examples...
+  Processed 248/300 examples...
+  Processed 300/300 examples...
+Saved 300 responses for 'rlaif' to /kaggle/working/LLM-PostTraining/results/task5_feedback/generated_gsm_rlaif.jsonl
+
+>>> Running Pairwise AI Judge on GSM vs SFT Baseline <<<
+
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/434 [00:00<01:06,  6.49it/s]
+Loading weights:   5%|▍         | 21/434 [00:00<00:04, 98.90it/s]
+Loading weights:  11%|█         | 47/434 [00:00<00:02, 163.80it/s]
+Loading weights:  16%|█▋        | 71/434 [00:00<00:01, 189.98it/s]
+Loading weights:  21%|██        | 92/434 [00:00<00:01, 183.10it/s]
+Loading weights:  26%|██▌       | 113/434 [00:00<00:01, 184.26it/s]
+Loading weights:  32%|███▏      | 137/434 [00:00<00:01, 196.32it/s]
+Loading weights:  37%|███▋      | 161/434 [00:00<00:01, 205.22it/s]
+Loading weights:  43%|████▎     | 185/434 [00:01<00:01, 211.38it/s]
+Loading weights:  48%|████▊     | 209/434 [00:01<00:01, 216.19it/s]
+Loading weights:  54%|█████▎    | 233/434 [00:01<00:00, 220.38it/s]
+Loading weights:  59%|█████▉    | 257/434 [00:01<00:00, 222.96it/s]
+Loading weights:  65%|██████▍   | 281/434 [00:01<00:00, 220.12it/s]
+Loading weights:  70%|███████   | 305/434 [00:01<00:00, 224.86it/s]
+Loading weights:  76%|███████▌  | 329/434 [00:01<00:00, 226.85it/s]
+Loading weights:  81%|████████▏ | 353/434 [00:01<00:00, 227.11it/s]
+Loading weights:  87%|████████▋ | 377/434 [00:01<00:00, 227.14it/s]
+Loading weights:  92%|█████████▏| 401/434 [00:01<00:00, 225.97it/s]
+Loading weights:  98%|█████████▊| 425/434 [00:02<00:00, 225.97it/s]
+Loading weights: 100%|██████████| 434/434 [00:02<00:00, 208.58it/s]
+  Judged 50/300 pairs (RLVR vs SFT)...
+  Judged 100/300 pairs (RLVR vs SFT)...
+  Judged 150/300 pairs (RLVR vs SFT)...
+  Judged 200/300 pairs (RLVR vs SFT)...
+  Judged 250/300 pairs (RLVR vs SFT)...
+  Judged 300/300 pairs (RLVR vs SFT)...
+  Judged 50/300 pairs (RLAIF vs SFT)...
+  Judged 100/300 pairs (RLAIF vs SFT)...
+  Judged 150/300 pairs (RLAIF vs SFT)...
+  Judged 200/300 pairs (RLAIF vs SFT)...
+  Judged 250/300 pairs (RLAIF vs SFT)...
+  Judged 300/300 pairs (RLAIF vs SFT)...
+
+--- GSM Mathematical Reasoning Evaluation Summary ---
+| Policy | Exact Accuracy | Win Rate vs SFT | Format Compliance | Verifier-Judge Agreement | Mean Length |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| SFT | 28.3% | 50.0% | 36.3% | 100.0% | 280.5 |
+| RLVR | 29.7% | 46.2% | 40.3% | 35.3% | 277.2 |
+| RLAIF | 26.3% | 48.2% | 33.0% | 38.0% | 282.0 |
+
+Results saved to /kaggle/working/LLM-PostTraining/results/task5_feedback/math_eval_gsm.json
+
+[exit 0] 7896s
