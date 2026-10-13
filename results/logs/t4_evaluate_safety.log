@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/kaggle/working/LLM-PostTraining/task4_safety/evaluate_safety.py", line 332, in <module>
+    main()
+    ~~~~^^
+  File "/kaggle/working/LLM-PostTraining/task4_safety/evaluate_safety.py", line 328, in main
+    run_safety_evaluation(args.config)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/kaggle/working/LLM-PostTraining/task4_safety/evaluate_safety.py", line 269, in run_safety_evaluation
+    raise RuntimeError(f"No judged policy data found in {outdir}. Run judge_responses.py first.")
+RuntimeError: No judged policy data found in /kaggle/working/LLM-PostTraining/results/task4_safety. Run judge_responses.py first.
+Notice: Judged data for 'sft' not found at /kaggle/working/LLM-PostTraining/results/task4_safety/judged_sft.jsonl. Run judge_responses.py first.
+Notice: Judged data for 'dpo' not found at /kaggle/working/LLM-PostTraining/results/task4_safety/judged_dpo.jsonl. Run judge_responses.py first.
+Notice: Judged data for 'ppo' not found at /kaggle/working/LLM-PostTraining/results/task4_safety/judged_ppo.jsonl. Run judge_responses.py first.
+Notice: Judged data for 'grpo' not found at /kaggle/working/LLM-PostTraining/results/task4_safety/judged_grpo.jsonl. Run judge_responses.py first.
+
+[exit 1] 1s
