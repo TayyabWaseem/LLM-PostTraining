@@ -1,0 +1,52 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+==================================================
+  Task 5: Controlled Reward Diagnostic Study     
+==================================================
+Loaded 20 problems with 5 controlled variants each (100 total responses).
+
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/434 [00:00<01:05,  6.58it/s]
+Loading weights:   3%|▎         | 15/434 [00:00<00:06, 66.42it/s]
+Loading weights:   9%|▊         | 37/434 [00:00<00:03, 126.63it/s]
+Loading weights:  12%|█▏        | 53/434 [00:00<00:02, 138.12it/s]
+Loading weights:  18%|█▊        | 76/434 [00:00<00:02, 168.87it/s]
+Loading weights:  23%|██▎       | 99/434 [00:00<00:01, 186.35it/s]
+Loading weights:  28%|██▊       | 123/434 [00:00<00:01, 198.84it/s]
+Loading weights:  34%|███▍      | 147/434 [00:00<00:01, 207.70it/s]
+Loading weights:  39%|███▉      | 171/434 [00:00<00:01, 212.76it/s]
+Loading weights:  45%|████▍     | 195/434 [00:01<00:01, 215.04it/s]
+Loading weights:  50%|█████     | 219/434 [00:01<00:00, 217.01it/s]
+Loading weights:  56%|█████▌    | 243/434 [00:01<00:00, 219.86it/s]
+Loading weights:  62%|██████▏   | 267/434 [00:01<00:00, 223.69it/s]
+Loading weights:  67%|██████▋   | 291/434 [00:01<00:00, 222.58it/s]
+Loading weights:  73%|███████▎  | 315/434 [00:01<00:00, 227.04it/s]
+Loading weights:  78%|███████▊  | 339/434 [00:01<00:00, 227.85it/s]
+Loading weights:  84%|████████▎ | 363/434 [00:01<00:00, 227.68it/s]
+Loading weights:  89%|████████▉ | 387/434 [00:01<00:00, 224.72it/s]
+Loading weights:  95%|█████████▍| 411/434 [00:02<00:00, 219.70it/s]
+Loading weights: 100%|██████████| 434/434 [00:02<00:00, 220.72it/s]
+Loading weights: 100%|██████████| 434/434 [00:02<00:00, 200.25it/s]
+
+--- Sensitivity Diagnostics: S_reason vs S_outcome ---
+| Metric | Definition | Exact Verifier | AI Judge |
+| :--- | :--- | :--- | :--- |
+| S_reason | Pr[R(y_clean) > R(y_corrupt)] | 0.0% | 30.0% |
+| S_outcome | Pr[R(y_correct) > R(y_wrong)] | 100.0% | 55.0% |
+
+--- Controlled Diagnostic Results by Category (20 Problems Each) ---
+| Perturbation Category | Mechanism | Better Rate % | Tie Rate % | Wrong Rate % |
+| :--- | :--- | :--- | :--- | :--- |
+| **Reasoning Corruption (Same Correct Final)** | Exact Verifier | 0.0% | 100.0% | 0.0% |
+| | AI Judge | 30.0% | 25.0% | 45.0% |
+| **Outcome Corruption (Wrong Final Answer)** | Exact Verifier | 100.0% | 0.0% | 0.0% |
+| | AI Judge | 50.0% | 45.0% | 5.0% |
+| **Persuasive Filler (Clean vs Filler)** | Exact Verifier | 0.0% | 100.0% | 0.0% |
+| | AI Judge | 20.0% | 5.0% | 75.0% |
+| **Gold Distractor (Mentions Gold, Wrong Final)** | Exact Verifier | 100.0% | 0.0% | 0.0% |
+| | AI Judge | 60.0% | 30.0% | 10.0% |
+| **Conflict (Corrupt+Correct vs Good+Wrong)** | Exact Verifier | 100.0% | 0.0% | 0.0% |
+| | AI Judge | 55.0% | 40.0% | 5.0% |
+
+Saved perturbation results and qualitative evidence to /kaggle/working/LLM-PostTraining/results/task5_feedback/perturbation_scoring.json
+
+[exit 0] 160s
